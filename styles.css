@@ -29,7 +29,7 @@ body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Robo
 .tabs { display: flex; gap: 10px; }
 .tab, .tab-link { appearance: none; background: transparent; border: 1px solid transparent; color: var(--muted); padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; }
 .tab:hover, .tab-link:hover { background: var(--surface); }
-.tab.is-active, .tab.active { color: var(--text); border-color: var(--border); background: #fff; }
+.tab.is-active { color: var(--text); border-color: var(--border); background: #fff; }
 .tab:focus-visible, .tab-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
 /* Main */

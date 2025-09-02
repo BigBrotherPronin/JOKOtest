@@ -1,158 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>AssistMe – Bureaucracy Companion (MVP)</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BureauEase | Navigate Bureaucracy with Confidence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: 255 255 255;
+            --foreground: 51 51 51;
+            --card: 249 250 251;
+            --card-foreground: 51 51 51;
+            --primary: 34 197 94;
+            --primary-foreground: 255 255 255;
+            --secondary: 59 130 246;
+            --secondary-foreground: 255 255 255;
+            --muted: 243 244 246;
+            --muted-foreground: 107 114 128;
+            --accent: 96 165 250;
+            --accent-foreground: 255 255 255;
+            --border: 229 231 235;
+            --radius: 0.5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgb(var(--background));
+            color: rgb(var(--foreground));
+        }
+        
+        .bg-primary { background-color: rgb(var(--primary)); }
+        .text-primary { color: rgb(var(--primary)); }
+        .bg-primary-foreground { background-color: rgb(var(--primary-foreground)); }
+        .text-primary-foreground { color: rgb(var(--primary-foreground)); }
+        
+        .bg-secondary { background-color: rgb(var(--secondary)); }
+        .text-secondary { color: rgb(var(--secondary)); }
+
+        .bg-card { background-color: rgb(var(--card)); }
+        .bg-muted { background-color: rgb(var(--muted)); }
+        .text-muted-foreground { color: rgb(var(--muted-foreground)); }
+
+        .border-border { border-color: rgb(var(--border)); }
+
+        .bg-accent { background-color: rgb(var(--accent)); }
+        .text-accent { color: rgb(var(--accent)); }
+
+        .bg-primary\/10 { background-color: rgba(var(--primary), 0.1); }
+        .bg-secondary\/10 { background-color: rgba(var(--secondary), 0.1); }
+        .bg-accent\/10 { background-color: rgba(var(--accent), 0.1); }
+        .bg-primary\/5 { background-color: rgba(var(--primary), 0.05); }
+
+        .hover\:bg-primary\/90:hover { background-color: rgb(30 177 84); }
+        .hover\:bg-secondary\/20:hover { background-color: rgba(var(--secondary), 0.2); }
+        .hover\:bg-muted:hover { background-color: rgb(var(--muted)); }
+    </style>
 </head>
-<body>
-	<header class="app-header" role="banner">
-		<div class="header-inner">
-			<a href="page.html" class="brand">
-				<span class="brand-logo" aria-hidden="true">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#11C978"/>
-					</svg>
-				</span>
-				<span class="brand-name">BureauEase</span>
-			</a>
-			<nav class="tabs" role="navigation" aria-label="Primary">
-				<button class="tab active" data-tab="applications" aria-controls="view-applications" aria-selected="true" role="tab">Applications</button>
-				<button class="tab" data-tab="reminders" aria-controls="view-reminders" aria-selected="false" role="tab">Reminders</button>
-				<button class="tab" data-tab="community" aria-controls="view-community" aria-selected="false" role="tab">Community</button>
-				<button class="tab" data-tab="resources" aria-controls="view-resources" aria-selected="false" role="tab">Resources</button>
-			</nav>
-		</div>
-	</header>
+<body class="min-h-screen">
 
-	<main class="app-main" role="main">
-		<section id="view-applications" class="view is-active" role="tabpanel" aria-labelledby="Applications">
-			<div class="panel">
-				<div class="panel-header">
-					<h1 class="panel-title">Application Tracking</h1>
-					<p class="panel-subtitle">Add your cases and update their status as they progress.</p>
-				</div>
-				<form id="form-application" class="form-grid" autocomplete="off">
-					<label class="field field-type">
-						<span class="label">Application Type</span>
-						<input id="app-type" type="text" placeholder="e.g., Residency, Citizenship, Housing" required />
-					</label>
-					<label class="field field-title">
-						<span class="label">Case Title</span>
-						<input id="app-title" type="text" placeholder="e.g., Residency Permit – Berlin" required />
-					</label>
-					<label class="field field-status">
-						<span class="label">Status</span>
-						<select id="app-status" required>
-							<option>Draft</option>
-							<option>Submitted</option>
-							<option>In Review</option>
-							<option>Approved</option>
-							<option>Rejected</option>
-						</select>
-					</label>
-					<label class="field field-notes full">
-						<span class="label">Notes (optional)</span>
-						<input id="app-notes" type="text" placeholder="Reference number, office, next steps" />
-					</label>
-					<button class="btn primary" type="submit">Add Application</button>
-				</form>
-				<div id="applications-list" class="list"></div>
-			</div>
-		</section>
+    <!-- Header -->
+    <header class="border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+                    <svg class="h-8 w-8 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span class="text-xl font-bold">BureauEase</span>
+                </a>
+                <nav class="flex space-x-6" role="navigation" aria-label="Primary">
+                    <a href="app.html" class="text-gray-600 hover:text-primary transition-colors">Applications</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Reminders</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Community</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Resources</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-		<section id="view-reminders" class="view" role="tabpanel" aria-labelledby="Reminders">
-			<div class="panel">
-				<div class="panel-header">
-					<h1 class="panel-title">Reminders & Alerts</h1>
-					<p class="panel-subtitle">Set gentle reminders for deadlines and appointments.</p>
-				</div>
-				<form id="form-reminder" class="form-grid" autocomplete="off">
-					<label class="field field-rem-title">
-						<span class="label">Reminder Title</span>
-						<input id="rem-title" type="text" placeholder="e.g., Biometrics Appointment" required />
-					</label>
-					<label class="field field-rem-when">
-						<span class="label">Due Date & Time</span>
-						<input id="rem-datetime" type="datetime-local" required />
-					</label>
-					<button class="btn primary" type="submit">Add Reminder</button>
-				</form>
-				<div id="reminders-list" class="list"></div>
-				<div class="hint">Notifications use your browser while this page is open. You can also enable system notifications if prompted.</div>
-			</div>
-		</section>
+    <!-- Hero Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-4xl text-center">
+            <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold mb-6 bg-secondary/10 text-secondary hover:bg-secondary/20">
+                Simplifying Bureaucracy
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" style="text-wrap: balance;">
+                Navigate Bureaucracy with <span class="text-primary">Confidence</span>
+            </h1>
+            <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" style="text-wrap: pretty;">
+                Stop feeling overwhelmed by government processes. Track applications, get reminders, connect with others, and access reliable guides—all in one trusted platform.
+            </p>
+            <div class="flex justify-center">
+                <a href="app.html" class="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Start Managing Applications
+                    <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-		<section id="view-community" class="view" role="tabpanel" aria-labelledby="Community">
-			<div class="panel">
-				<div class="panel-header">
-					<h1 class="panel-title">Community Support</h1>
-					<p class="panel-subtitle">Share experiences and tips. Be kind and respectful.</p>
-				</div>
-				<form id="form-post" class="form-grid" autocomplete="off">
-					<label class="field field-post-title">
-						<span class="label">Post Title</span>
-						<input id="post-title" type="text" placeholder="e.g., My Residency Interview Tips" required />
-					</label>
-					<label class="field full">
-						<span class="label">Your Message</span>
-						<textarea id="post-text" rows="4" placeholder="What helped you? What should others expect?" required></textarea>
-					</label>
-					<button class="btn primary" type="submit">Post</button>
-				</form>
-				<div id="posts-list" class="list"></div>
-			</div>
-		</section>
+    <!-- Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" style="text-wrap: balance;">
+                    Everything You Need in One Place
+                </h2>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto" style="text-wrap: pretty;">
+                    Designed specifically for people navigating complex government processes. No more confusion, no more missed deadlines.
+                </p>
+            </div>
 
-		<section id="view-resources" class="view" role="tabpanel" aria-labelledby="Resources">
-			<div class="panel">
-				<div class="panel-header">
-					<h1 class="panel-title">Resource Hub</h1>
-					<p class="panel-subtitle">Clear guides and checklists for common processes.</p>
-				</div>
-				<div class="accordion fancy" id="resources-accordion">
-					<details>
-						<summary>Residency Permit – Step-by-Step</summary>
-						<ol class="steps bullets-detailed">
-							<li><strong>Prepare documents</strong><small> – passport, proof of address, biometric photos</small></li>
-							<li><strong>Book appointment</strong><small> – use the official portal, pick earliest available</small></li>
-							<li><strong>Complete form</strong><small> – fill carefully; double-check names and dates</small></li>
-							<li><strong>Attend appointment</strong><small> – bring originals and copies in a simple folder</small></li>
-							<li><strong>Track status</strong><small> – respond promptly to any follow-ups</small></li>
-						</ol>
-					</details>
-					<details>
-						<summary>Citizenship – Common Requirements</summary>
-						<ul class="bullets bullets-detailed">
-							<li><strong>Language proof</strong><small> – standardized test or certificate</small></li>
-							<li><strong>Residency duration</strong><small> – varies by country and path</small></li>
-							<li><strong>Integration course</strong><small> – if applicable, completion evidence</small></li>
-							<li><strong>Background check</strong><small> – police clearance and required forms</small></li>
-						</ul>
-					</details>
-					<details>
-						<summary>Housing – Registration & Contracts</summary>
-						<ul class="bullets bullets-detailed">
-							<li><strong>Register on time</strong><small> – within the local timeframe</small></li>
-							<li><strong>Review terms</strong><small> – rent increases, deposit, notice periods</small></li>
-							<li><strong>Utilities setup</strong><small> – electricity, internet, local waste rules</small></li>
-						</ul>
-					</details>
-				</div>
-			</div>
-		</section>
-	</main>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature Card 1 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Application Tracking</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Monitor the status of all your applications—residency, citizenship, housing—in one dashboard.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-secondary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Smart Reminders</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Never miss important deadlines or appointments with intelligent notifications and alerts.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Community Support</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Connect with others going through similar processes. Share experiences and get advice.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature Card 4 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Resource Hub</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Access comprehensive guides, FAQs, and step-by-step instructions for any process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<footer class="app-footer" role="contentinfo">
-		<div class="footer-inner">
-			<small>Designed for clarity and calm. This MVP stores your data in your browser only.</small>
-		</div>
-	</footer>
+    <!-- How It Works Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" style="text-wrap: balance;">
+                    Simple Steps to Success
+                </h2>
+                <p class="text-lg text-muted-foreground" style="text-wrap: pretty;">
+                    Get started in minutes and take control of your bureaucratic journey.
+                </p>
+            </div>
 
-	<script src="./script.js"></script>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Add Your Applications</h3>
+                    <p class="text-muted-foreground" style="text-wrap: pretty;">
+                        Input your current applications and their status. Our system will organize everything clearly.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-secondary">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Set Up Reminders</h3>
+                    <p class="text-muted-foreground" style="text-wrap: pretty;">
+                        Configure alerts for deadlines, appointments, and required actions. Never miss anything important.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Stay Informed</h3>
+                    <p class="text-muted-foreground" style="text-wrap: pretty;">
+                        Access resources, connect with the community, and track your progress with confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="text-wrap: balance;">
+                Ready to Simplify Your Bureaucratic Journey?
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto" style="text-wrap: pretty;">
+                Join thousands of people who have taken control of their government processes. Start managing your applications with confidence today.
+            </p>
+            <a href="app.html" class="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground">
+                Get Started for Free
+                <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span class="text-lg font-bold text-gray-800">BureauEase</span>
+                    </div>
+                    <p class="text-muted-foreground mb-4" style="text-wrap: pretty;">
+                        Empowering people to navigate bureaucracy with confidence and ease. Your trusted partner in government processes.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Features</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary">Application Tracking</a></li>
+                        <li><a href="#" class="hover:text-primary">Smart Reminders</a></li>
+                        <li><a href="#" class="hover:text-primary">Community Support</a></li>
+                        <li><a href="#" class="hover:text-primary">Resource Hub</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Support</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 BureauEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
-</html> 
+</html>

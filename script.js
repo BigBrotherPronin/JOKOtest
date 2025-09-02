@@ -37,6 +37,15 @@
 		}
 	});
 
+	// Hide results when input is cleared
+	searchInput.addEventListener('input', function () {
+		const value = searchInput.value.trim();
+		if (value.length === 0) {
+			results.classList.remove('visible');
+			currentTerm = '';
+		}
+	});
+
 	// Click handler for notify
 	notifyButton.addEventListener('click', function () {
 		if (notifyButton.disabled) return;

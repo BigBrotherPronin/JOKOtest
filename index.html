@@ -3,86 +3,156 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Joko Search Prototype</title>
+	<title>AssistMe – Bureaucracy Companion (MVP)</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-	<header class="navbar">
-		<div class="nav-inner">
-			<div class="nav-left">
-				<div class="brand">
-					<span class="brand-icon" aria-hidden="true">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M13 3L4 14H11L9 21L20 10H13L13 3Z" fill="#1A1A1A"/>
-						</svg>
-					</span>
-					<span class="brand-text">JOKO</span>
-				</div>
-				<div class="search-wrapper" role="search" aria-label="Search brands">
-					<span class="search-icon" aria-hidden="true">
-						<!-- Simple search icon SVG -->
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M21 21L16.65 16.65" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							<path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-					</span>
-					<input id="searchInput" class="search-input" type="text" placeholder="Search for a brand..." aria-label="Search for a brand" autocomplete="off" />
-				</div>
-			</div>
-			<div class="nav-center">
-				<button class="nav-icon-btn" aria-label="Lightning">
-					<span class="nav-icon" aria-hidden="true">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M13 3L4 14H11L9 21L20 10H13L13 3Z" fill="#9E9E9E"/>
-						</svg>
-					</span>
-				</button>
-				<button class="nav-icon-btn" aria-label="Favorites">
-					<span class="nav-icon" aria-hidden="true">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M12 21s-6.5-4.35-9.33-7.18C.84 11.99.5 9.2 2.18 7.5 3.86 5.82 6.65 6.16 8.82 8.33L12 11.5l3.18-3.17c2.17-2.17 4.96-2.51 6.64-.83 1.68 1.7 1.34 4.49-.49 6.32C18.5 16.65 12 21 12 21z" fill="#9E9E9E"/>
-						</svg>
-					</span>
-				</button>
-				<button class="nav-icon-btn" aria-label="Gifts">
-					<span class="nav-icon" aria-hidden="true">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8h16z" fill="#9E9E9E"/>
-							<path d="M2 7h20v5H2z" fill="#BDBDBD"/>
-							<path d="M12 7v15" stroke="#9E9E9E" stroke-width="2"/>
-							<path d="M7.5 7C6.12 7 5 5.88 5 4.5S6.12 2 7.5 2 10 3.12 10 4.5 8.88 7 7.5 7zM16.5 7C15.12 7 14 5.88 14 4.5S15.12 2 16.5 2 19 3.12 19 4.5 17.88 7 16.5 7z" fill="#9E9E9E"/>
-						</svg>
-					</span>
-				</button>
-			</div>
-			<div class="nav-right">
-				<div class="balance-pill" aria-label="Balance">$1000</div>
-				<div class="profile" aria-label="Profile">F</div>
-			</div>
+	<header class="app-header" role="banner">
+		<div class="header-inner">
+			<a href="page.html" class="brand">
+				<span class="brand-logo" aria-hidden="true">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#11C978"/>
+					</svg>
+				</span>
+				<span class="brand-name">BureauEase</span>
+			</a>
+			<nav class="tabs" role="navigation" aria-label="Primary">
+				<button class="tab active" data-tab="applications" aria-controls="view-applications" aria-selected="true" role="tab">Applications</button>
+				<button class="tab" data-tab="reminders" aria-controls="view-reminders" aria-selected="false" role="tab">Reminders</button>
+				<button class="tab" data-tab="community" aria-controls="view-community" aria-selected="false" role="tab">Community</button>
+				<button class="tab" data-tab="resources" aria-controls="view-resources" aria-selected="false" role="tab">Resources</button>
+			</nav>
 		</div>
 	</header>
 
-	<main class="page">
-		<section id="results" class="results" aria-live="polite" aria-atomic="true">
-			<div class="illustration" aria-hidden="true">
-				<!-- Friendly two-tone line-art placeholder illustration -->
-				<svg width="150" height="150" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<rect x="20" y="120" width="160" height="60" rx="8" stroke="#BDBDBD" stroke-width="2" fill="#F5F5F5"/>
-					<circle cx="70" cy="80" r="24" stroke="#9E9E9E" stroke-width="2" fill="#FFFFFF"/>
-					<path d="M46 120C50 104 60 96 70 96C80 96 90 104 94 120" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
-					<rect x="110" y="70" width="60" height="40" rx="6" stroke="#9E9E9E" stroke-width="2" fill="#FFFFFF"/>
-					<path d="M110 90H170" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
-					<path d="M130 70V110" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
-				</svg>
+	<main class="app-main" role="main">
+		<section id="view-applications" class="view is-active" role="tabpanel" aria-labelledby="Applications">
+			<div class="panel">
+				<div class="panel-header">
+					<h1 class="panel-title">Application Tracking</h1>
+					<p class="panel-subtitle">Add your cases and update their status as they progress.</p>
+				</div>
+				<form id="form-application" class="form-grid" autocomplete="off">
+					<label class="field field-type">
+						<span class="label">Application Type</span>
+						<input id="app-type" type="text" placeholder="e.g., Residency, Citizenship, Housing" required />
+					</label>
+					<label class="field field-title">
+						<span class="label">Case Title</span>
+						<input id="app-title" type="text" placeholder="e.g., Residency Permit – Berlin" required />
+					</label>
+					<label class="field field-status">
+						<span class="label">Status</span>
+						<select id="app-status" required>
+							<option>Draft</option>
+							<option>Submitted</option>
+							<option>In Review</option>
+							<option>Approved</option>
+							<option>Rejected</option>
+						</select>
+					</label>
+					<label class="field field-notes full">
+						<span class="label">Notes (optional)</span>
+						<input id="app-notes" type="text" placeholder="Reference number, office, next steps" />
+					</label>
+					<button class="btn primary" type="submit">Add Application</button>
+				</form>
+				<div id="applications-list" class="list"></div>
 			</div>
-			<h1 id="mainHeading" class="main-heading">No active offers for '' right now.</h1>
-			<p class="subheading">Want to know when offers become available?</p>
-			<button id="notifyButton" class="notify-button" type="button">Notify Me</button>
+		</section>
+
+		<section id="view-reminders" class="view" role="tabpanel" aria-labelledby="Reminders">
+			<div class="panel">
+				<div class="panel-header">
+					<h1 class="panel-title">Reminders & Alerts</h1>
+					<p class="panel-subtitle">Set gentle reminders for deadlines and appointments.</p>
+				</div>
+				<form id="form-reminder" class="form-grid" autocomplete="off">
+					<label class="field field-rem-title">
+						<span class="label">Reminder Title</span>
+						<input id="rem-title" type="text" placeholder="e.g., Biometrics Appointment" required />
+					</label>
+					<label class="field field-rem-when">
+						<span class="label">Due Date & Time</span>
+						<input id="rem-datetime" type="datetime-local" required />
+					</label>
+					<button class="btn primary" type="submit">Add Reminder</button>
+				</form>
+				<div id="reminders-list" class="list"></div>
+				<div class="hint">Notifications use your browser while this page is open. You can also enable system notifications if prompted.</div>
+			</div>
+		</section>
+
+		<section id="view-community" class="view" role="tabpanel" aria-labelledby="Community">
+			<div class="panel">
+				<div class="panel-header">
+					<h1 class="panel-title">Community Support</h1>
+					<p class="panel-subtitle">Share experiences and tips. Be kind and respectful.</p>
+				</div>
+				<form id="form-post" class="form-grid" autocomplete="off">
+					<label class="field field-post-title">
+						<span class="label">Post Title</span>
+						<input id="post-title" type="text" placeholder="e.g., My Residency Interview Tips" required />
+					</label>
+					<label class="field full">
+						<span class="label">Your Message</span>
+						<textarea id="post-text" rows="4" placeholder="What helped you? What should others expect?" required></textarea>
+					</label>
+					<button class="btn primary" type="submit">Post</button>
+				</form>
+				<div id="posts-list" class="list"></div>
+			</div>
+		</section>
+
+		<section id="view-resources" class="view" role="tabpanel" aria-labelledby="Resources">
+			<div class="panel">
+				<div class="panel-header">
+					<h1 class="panel-title">Resource Hub</h1>
+					<p class="panel-subtitle">Clear guides and checklists for common processes.</p>
+				</div>
+				<div class="accordion fancy" id="resources-accordion">
+					<details>
+						<summary>Residency Permit – Step-by-Step</summary>
+						<ol class="steps bullets-detailed">
+							<li><strong>Prepare documents</strong><small> – passport, proof of address, biometric photos</small></li>
+							<li><strong>Book appointment</strong><small> – use the official portal, pick earliest available</small></li>
+							<li><strong>Complete form</strong><small> – fill carefully; double-check names and dates</small></li>
+							<li><strong>Attend appointment</strong><small> – bring originals and copies in a simple folder</small></li>
+							<li><strong>Track status</strong><small> – respond promptly to any follow-ups</small></li>
+						</ol>
+					</details>
+					<details>
+						<summary>Citizenship – Common Requirements</summary>
+						<ul class="bullets bullets-detailed">
+							<li><strong>Language proof</strong><small> – standardized test or certificate</small></li>
+							<li><strong>Residency duration</strong><small> – varies by country and path</small></li>
+							<li><strong>Integration course</strong><small> – if applicable, completion evidence</small></li>
+							<li><strong>Background check</strong><small> – police clearance and required forms</small></li>
+						</ul>
+					</details>
+					<details>
+						<summary>Housing – Registration & Contracts</summary>
+						<ul class="bullets bullets-detailed">
+							<li><strong>Register on time</strong><small> – within the local timeframe</small></li>
+							<li><strong>Review terms</strong><small> – rent increases, deposit, notice periods</small></li>
+							<li><strong>Utilities setup</strong><small> – electricity, internet, local waste rules</small></li>
+						</ul>
+					</details>
+				</div>
+			</div>
 		</section>
 	</main>
+
+	<footer class="app-footer" role="contentinfo">
+		<div class="footer-inner">
+			<small>Designed for clarity and calm. This MVP stores your data in your browser only.</small>
+		</div>
+	</footer>
+
 	<script src="./script.js"></script>
 </body>
 </html> 

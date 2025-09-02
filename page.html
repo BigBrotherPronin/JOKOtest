@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BureauEase | Navigate Bureaucracy with Confidence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: 255 255 255;
+            --foreground: 51 51 51;
+            --card: 249 250 251;
+            --card-foreground: 51 51 51;
+            --primary: 34 197 94;
+            --primary-foreground: 255 255 255;
+            --secondary: 59 130 246;
+            --secondary-foreground: 255 255 255;
+            --muted: 243 244 246;
+            --muted-foreground: 107 114 128;
+            --accent: 96 165 250;
+            --accent-foreground: 255 255 255;
+            --border: 229 231 235;
+            --radius: 0.5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgb(var(--background));
+            color: rgb(var(--foreground));
+        }
+        
+        .bg-primary { background-color: rgb(var(--primary)); }
+        .text-primary { color: rgb(var(--primary)); }
+        .bg-primary-foreground { background-color: rgb(var(--primary-foreground)); }
+        .text-primary-foreground { color: rgb(var(--primary-foreground)); }
+        
+        .bg-secondary { background-color: rgb(var(--secondary)); }
+        .text-secondary { color: rgb(var(--secondary)); }
+
+        .bg-card { background-color: rgb(var(--card)); }
+        .bg-muted { background-color: rgb(var(--muted)); }
+        .text-muted-foreground { color: rgb(var(--muted-foreground)); }
+
+        .border-border { border-color: rgb(var(--border)); }
+
+        .bg-accent { background-color: rgb(var(--accent)); }
+        .text-accent { color: rgb(var(--accent)); }
+
+        .bg-primary\/10 { background-color: rgba(var(--primary), 0.1); }
+        .bg-secondary\/10 { background-color: rgba(var(--secondary), 0.1); }
+        .bg-accent\/10 { background-color: rgba(var(--accent), 0.1); }
+        .bg-primary\/5 { background-color: rgba(var(--primary), 0.05); }
+
+        .hover\:bg-primary\/90:hover { background-color: rgb(30 177 84); }
+        .hover\:bg-secondary\/20:hover { background-color: rgba(var(--secondary), 0.2); }
+        .hover\:bg-muted:hover { background-color: rgb(var(--muted)); }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <a href="page.html" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+                    <svg class="h-8 w-8 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span class="text-xl font-bold">BureauEase</span>
+                </a>
+                <nav class="flex space-x-6" role="navigation" aria-label="Primary">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">Applications</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Reminders</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Community</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Resources</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-4xl text-center">
+            <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold mb-6 bg-secondary/10 text-secondary hover:bg-secondary/20">
+                Simplifying Bureaucracy
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" style="text-wrap: balance;">
+                Navigate Bureaucracy with <span class="text-primary">Confidence</span>
+            </h1>
+            <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" style="text-wrap: pretty;">
+                Stop feeling overwhelmed by government processes. Track applications, get reminders, connect with others, and access reliable guides—all in one trusted platform.
+            </p>
+            <div class="flex justify-center">
+                <a href="index.html" class="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Start Managing Applications
+                    <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" style="text-wrap: balance;">
+                    Everything You Need in One Place
+                </h2>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto" style="text-wrap: pretty;">
+                    Designed specifically for people navigating complex government processes. No more confusion, no more missed deadlines.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature Card 1 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Application Tracking</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Monitor the status of all your applications—residency, citizenship, housing—in one dashboard.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-secondary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Smart Reminders</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Never miss important deadlines or appointments with intelligent notifications and alerts.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Community Support</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Connect with others going through similar processes. Share experiences and get advice.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature Card 4 -->
+                <div class="rounded-lg border border-border bg-card text-gray-900 shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="p-6 pb-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold tracking-tight">Resource Hub</h3>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <p class="text-sm text-muted-foreground">
+                            Access comprehensive guides, FAQs, and step-by-step instructions for any process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" style="text-wrap: balance;">
+                    Simple Steps to Success
+                </h2>
+                <p class="text-lg text-muted-foreground" style="text-wrap: pretty;">
+                    Get started in minutes and take control of your bureaucratic journey.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Add Your Applications</h3>
+                    <p class="text-muted-foreground" style="text-wrap: pretty;">
+                        Input your current applications and their status. Our system will organize everything clearly.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-secondary">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Set Up Reminders</h3>
+                    <p class="text-muted-foreground" style="text-wrap: pretty;">
+                        Configure alerts for deadlines, appointments, and required actions. Never miss anything important.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Stay Informed</h3>
+                    <p class="text-muted-foreground" style="text-wrap: pretty;">
+                        Access resources, connect with the community, and track your progress with confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-primary/5">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="text-wrap: balance;">
+                Ready to Simplify Your Bureaucratic Journey?
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto" style="text-wrap: pretty;">
+                Join thousands of people who have taken control of their government processes. Start managing your applications with confidence today.
+            </p>
+            <a href="index.html" class="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground">
+                Get Started for Free
+                <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span class="text-lg font-bold text-gray-800">BureauEase</span>
+                    </div>
+                    <p class="text-muted-foreground mb-4" style="text-wrap: pretty;">
+                        Empowering people to navigate bureaucracy with confidence and ease. Your trusted partner in government processes.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Features</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary">Application Tracking</a></li>
+                        <li><a href="#" class="hover:text-primary">Smart Reminders</a></li>
+                        <li><a href="#" class="hover:text-primary">Community Support</a></li>
+                        <li><a href="#" class="hover:text-primary">Resource Hub</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Support</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 BureauEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
